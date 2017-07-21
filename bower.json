@@ -1,0 +1,53 @@
+{
+  "name": "lss-manage-side-menu",
+  "version": "2.1.0",
+  "description": "A iron selecter that can be used in all manage apps for Leavitt",
+  "authors": [
+    "Leavitt Software Solutions"
+  ],
+  "keywords": [
+    "polymer 2",
+    "leavitt software",
+    "lss"
+  ],
+  "homepage": "https://github.com/LssPolymerElements/lss-manage-side-menu",
+  "main": "lss-manage-side-menu.html",
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "package.json",
+    "tsconfig.json",
+    ".gitignore",
+    ".vscode"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.9 - 2",
+    "iron-selector": "polymerelements/iron-selector#^1.0.0"
+  },
+  "devDependencies": {
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
+    "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0",
+    "paper-styles": "PolymerElements/paper-styles#^2.0.0"
+  },
+  "variants": {
+    "1.x": {
+      "dependencies": {
+        "polymer": "Polymer/polymer#^1.9.0",
+        "iron-selector": "polymerelements/iron-selector#^1.0.0"
+      },
+      "devDependencies": {
+        "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
+        "paper-styles": "PolymerElements/paper-styles#^1.0.0",
+        "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
+        "test-fixture": "PolymerElements/test-fixture#^1.0.0",
+        "web-component-tester": "Polymer/web-component-tester#^6.0.0",
+        "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0"
+      }
+    }
+  },
+  "demos": {
+    "Demo": "demo/index.html"
+  }
+}

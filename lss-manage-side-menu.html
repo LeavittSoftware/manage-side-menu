@@ -1,0 +1,81 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/iron-selector/iron-selector.html">
+<dom-module id="lss-manage-side-menu">
+	<template>
+		<style>
+			.side-nav-section {
+				@apply --paper-font-subhead;
+				font-family: 'Roboto Slab', 'Roboto', 'Noto', sans-serif;
+				border-left: 4px solid transparent;
+				font-weight: bold;
+				line-height: 24px;
+				padding: 5px 30px;
+				margin-top: 12px;
+				@apply --lss-manage-side-menu-side-nav-section
+			}
+
+			.side-nav-section-end {
+				display: block;
+				line-height: 24px;
+				margin-top: 12px;
+				border-top: 1px solid #eceff1;
+				@apply --lss-manage-side-menu-side-nav-section-end
+			}
+
+			.drawer-list a {
+				@apply --paper-font-subhead;
+				display: block;
+				padding: 5px 30px;
+				line-height: 24px;
+				text-decoration: none;
+				border-left: 4px solid transparent;
+				color: #6b6b6b;
+				@apply --lss-manage-side-menu-drawer-list-a
+			}
+
+			.drawer-list a.iron-selected {
+				font-weight: normal !important;
+				border-left: 4px solid var(--app-primary-color);
+				color: var(--app-primary-color) !important;
+				@apply --lss-manage-side-menu-drawer-list-a-iron-selected
+			}
+		</style>
+		<iron-selector selected="[[page]]" id="dymanicMenu" attr-for-selected="name" class="drawer-list" role="navigation">
+			<a name="overview" href="http://localhost:3000/overview">Overview</a>
+			<div class="side-nav-section-end"></div>
+
+			<div class="side-nav-section" category="1">Auditing</div>
+			<a name="log-parser" parent-category="1" display-role="View All Logs" href="http://localhost:3000/log-parser/apps">Log Parser</a>
+			<div class="side-nav-section-end" category="1"></div>
+
+			<div class="side-nav-section" category="2">Employee Management</div>
+			<a name="employee-manager" parent-category="2" display-role="Employee Manager Global Admin" href="http://localhost:3000/employee-manager/view/all/">Employee Manager</a>
+			<a name="hire-form" parent-category="2" display-role="Hire Employee" href="http://localhost:3000/hire-form/step1">Hire</a>
+			<a name="employee-termination-form" parent-category="2" display-role="Terminate Employee" href="http://localhost:3000/employee-termination-form">Terminate</a>
+			<a name="employee-transfer-form" parent-category="2" display-role="Transfer Employee" href="http://localhost:3000/employee-transfer-form">Transfer</a>
+			<a name="job-role-types-manager" parent-category="2" display-role="Job Role Manager Global Admin" href="http://localhost:3000/job-role-types-manager">Job Role Types Manager</a>
+			<a name="uvis-member-list" parent-category="2" display-role="UVIS Member List Admin" href="http://localhost:3000/uvis-member-list">UVIS Member List</a>
+			<div class="side-nav-section-end" category="2"></div>
+
+			<div class="side-nav-section" category="3">Enterprise Management</div>
+			<a name="application-manager" parent-category="3" display-role="App Manager Access" href="http://localhost:3000/application-manager">Application Manager</a>
+			<a name="company-manager" parent-category="3" display-role="Company Manager Access" href="http://localhost:3000/company-manager">Company Manager</a>
+			<a name="email-template-manager" parent-category="3" display-role="Email Template Manager Access" href="http://localhost:3000/email-template-manager">Email Template Manager</a>
+			<a name="permission-manager" parent-category="3" display-role="Permission Manager App Access" href="http://localhost:3000/permission-manager">Permission Manager</a>
+			<div class="side-nav-section-end" category="3"></div>
+
+			<div class="side-nav-section" category="4">Phones</div>
+			<a name="outbound-caller-id-group-manager" parent-category="4" display-role="Outbound Manager Access" href="http://localhost:3000/outbound-caller-id-group-manager">Outbound Caller Id Groups</a>
+			<div class="side-nav-section-end" category="4"></div>
+
+			<div class="side-nav-section" category="5">Reporting</div>
+			<a name="book-of-business-changes-manager" parent-category="5" display-role="BookOfBusinessChange Read Access" href="http://localhost:3000/book-of-business-changes-manager">Book of Business Manager</a>
+			<a name="line-of-business-manager" parent-category="5" display-role="StandardizedLOB Read Access" href="http://localhost:3000/line-of-business-manager">Line of Business Manager</a>
+			<a name="standard-chart-of-accounts-manager" parent-category="5" display-role="StandardChartOfAccount Read Access" href="http://localhost:3000/standard-chart-of-accounts-manager">Chart of Accounts Manager</a>
+			<a name="standardized-gl-department-mapper" parent-category="5" display-role="StandardizedGLDepartment Read Access" href="http://localhost:3000/standardized-gl-department-mapper">GL Department Mapper</a>
+			<a name="producer-code-manager" parent-category="6" display-role="Producer Code Admin" href="https://producercodemanager.leavitt.com">Producer Code Manager</a>
+			<div class="side-nav-section-end" category="5"></div>
+		</iron-selector>
+	</template>
+	<script src="lss-manage-side-menu.js"></script>
+</dom-module>

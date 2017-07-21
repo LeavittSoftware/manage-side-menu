@@ -1,0 +1,31 @@
+{
+  "name": "profile-picture",
+  "version": "2.0.9",
+  "description": "Leavitt Manage Side Menu Hybrid",
+  "main": "profile-picture.html",
+  "dependencies": {},
+  "devDependencies": {
+    "tslint": "^4.0.2",
+    "browser-sync": "^2.18.2",
+    "gulp": "^3.9.1",
+    "typescript": "^2.4.1",
+    "bower": "*"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "postinstall": "bower install",
+    "lint": "tslint \"*.ts\"",
+    "build": "tsc",
+    "test": "npm run lint && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LssPolymerElements/lss-manage-side-menu.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LssPolymerElements/lss-manage-side-menu/issues"
+  },
+  "homepage": "https://github.com/LssPolymerElements/lss-manage-side-menu#readme"
+}
