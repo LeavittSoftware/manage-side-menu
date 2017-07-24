@@ -15,7 +15,7 @@ if (Polymer.Element) {
                     type: String,
                     notify: true
                 }
-            }
+            };
         }
         constructor() {
             super();
@@ -43,17 +43,17 @@ if (Polymer.Element) {
             //with one or more visible children are shown
             const categories = Polymer.dom(this.root).querySelectorAll("div[category]");
             categories.forEach(category => {
-                var visibleSubcategorieslist = Polymer.dom(this.root).querySelectorAll('a[parent-category="' + category.attributes["category"].value + '"]');
+                var visibleSubcategorieslist = Polymer.dom(this.root).querySelectorAll('a[parent-category="' + category.attributes.category.value + '"]');
                 visibleSubcategorieslist = Array.prototype.slice.call(visibleSubcategorieslist);
                 var visibleSubcategories = visibleSubcategorieslist.filter(o => {
-                    return o.style.display !== "none"
+                    return o.style.display !== "none";
                 });
                 if (visibleSubcategories.length === 0) {
                     category.style.display = "none";
                 } else {
                     category.style.display = "";
                 }
-            })
+            });
         }
 
 
@@ -97,15 +97,15 @@ if (Polymer.Element) {
             //with one or more visible children are shown
             const categories = Polymer.dom(this.root).querySelectorAll("div[category]");
             categories.forEach(category => {
-                var visibleSubcategories = Polymer.dom(this.root).querySelectorAll('a[parent-category="' + category.attributes["category"].value + '"]').filter(o => {
-                    return o.style.display !== "none"
+                var visibleSubcategories = Polymer.dom(this.root).querySelectorAll('a[parent-category="' + category.attributes.category.value + '"]').filter(o => {
+                    return o.style.display !== "none";
                 });
                 if (visibleSubcategories.length === 0) {
                     category.style.display = "none";
                 } else {
                     category.style.display = "";
                 }
-            })
+            });
         }
     });
 }

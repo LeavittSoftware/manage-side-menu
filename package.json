@@ -12,11 +12,8 @@
     "bower": "*"
   },
   "scripts": {
-    "prepublish": "npm run build",
-    "postinstall": "bower install",
-    "lint": "tslint \"*.ts\"",
-    "build": "tsc",
-    "test": "npm run lint && npm run build"
+    "lint": "jshint \"lss-manage-side-menu.js\" --extract=always",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
