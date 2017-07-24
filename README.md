@@ -1,4 +1,4 @@
-# lss-profile-picture
+# lss-manage-side-menu
 [![Build status](https://ci.appveyor.com/api/projects/status/t2n1whcpamse2sy9/branch/master?svg=true)](https://ci.appveyor.com/project/aarondrabeck/lss-manage-side-menu/branch/master)
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LssPolymerElements/lss-manage-side-menu)
 
@@ -24,7 +24,6 @@ To install use: `bower install --save lss-manage-side-menu`
                 </div>
              </app-drawer>
 
-        <h4>Stand Alone Url</h4>
         When using a different app-routing system on a stand a lone url you can simply replace the page tag with the name.
                     <lss-manage-side-menu roles="[[roles]]" page="sample-app" id="LssManageAppDrawer"></lss-manage-side-menu>
         
