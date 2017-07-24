@@ -4,7 +4,7 @@
 
 To install use: `bower install --save lss-manage-side-menu`
 
-[ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/demo/index.html)
+[ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/lss-manage-side-menu/demo/index.html)
 
 ```html
         <h3>LSS Manage Side Menu Demo</h3>
