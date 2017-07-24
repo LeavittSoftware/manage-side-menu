@@ -4,10 +4,29 @@
 
 To install use: `bower install --save lss-manage-side-menu`
 
-[ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/lss-manage-side-menu/demo/index.html)
+[ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/lss-manage-side-menu)
 
 ```html
         <h3>LSS Manage Side Menu Demo</h3>
-                <lss-manage-side-menu roles="[[roles]]" page="[[page]]"></lss-manage-side-menu>
 
+        <style>
+        .app-drawer {
+               height: 100%;
+               overflow: auto;
+           }
+        </style>
+        <app-drawer-layout fullbleed>
+             <!-- Drawer content -->
+             <app-drawer id="drawer">
+               <div class='app-drawer'>
+                    <app-toolbar><img src="/images/Leavitt-Group-Bw.png" alt="Leavitt Group"></app-toolbar>
+                    <lss-manage-side-menu roles="[[roles]]" page="[[page]]" id="LssManageAppDrawer"></lss-manage-side-menu>
+                </div>
+             </app-drawer>
+
+        <h4>Stand Alone Url</h4>
+        When using a different app-routing system on a stand a lone url you can simply replace the page tag with the name.
+                    <lss-manage-side-menu roles="[[roles]]" page="sample-app" id="LssManageAppDrawer"></lss-manage-side-menu>
+        
+        
 ```
