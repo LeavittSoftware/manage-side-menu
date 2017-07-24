@@ -1,8 +1,8 @@
 {
-  "name": "profile-picture",
-  "version": "2.0.9",
+  "name": "lss-manage-side-menu",
+  "version": "1.0.1",
   "description": "Leavitt Manage Side Menu Hybrid",
-  "main": "profile-picture.html",
+  "main": "lss-manage-side-menu.html",
   "dependencies": {},
   "devDependencies": {
     "tslint": "^4.0.2",
