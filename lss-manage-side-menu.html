@@ -11,7 +11,7 @@
 				line-height: 24px;
 				padding: 5px 30px;
 				margin-top: 12px;
-				@apply --lss-manage-side-menu-side-nav-section
+				@apply --lss-manage-side-menu-side-nav-section;
 			}
 
 			.side-nav-section-end {
@@ -19,7 +19,7 @@
 				line-height: 24px;
 				margin-top: 12px;
 				border-top: 1px solid #eceff1;
-				@apply --lss-manage-side-menu-side-nav-section-end
+				@apply --lss-manage-side-menu-side-nav-section-end;
 			}
 
 			.drawer-list a {
@@ -30,14 +30,14 @@
 				text-decoration: none;
 				border-left: 4px solid transparent;
 				color: #6b6b6b;
-				@apply --lss-manage-side-menu-drawer-list-a
+				@apply --lss-manage-side-menu-drawer-list-a;
 			}
 
 			.drawer-list a.iron-selected {
 				font-weight: normal !important;
 				border-left: 4px solid var(--app-primary-color);
 				color: var(--app-primary-color) !important;
-				@apply --lss-manage-side-menu-drawer-list-a-iron-selected
+				@apply --lss-manage-side-menu-drawer-list-a-iron-selected;
 			}
 		</style>
 		<iron-selector selected="[[page]]" id="dymanicMenu" attr-for-selected="name" class="drawer-list" role="navigation">
