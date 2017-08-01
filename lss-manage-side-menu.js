@@ -17,6 +17,22 @@ if (Polymer.Element) {
                 }
             };
         }
+
+        ready() {
+            if (location.host.indexOf('dev') === 0) {
+                var links = Polymer.dom(this.root).querySelectorAll("a");
+                links.forEach(link => {
+                    link.hostname = 'dev' + link.hostname;
+                })
+            }
+            if (location.host.indexOf('localhost') === 0) {
+                var links = Polymer.dom(this.root).querySelectorAll("a");
+                links.forEach(link => {
+                    link.hostname = location.host;
+                    link.protocol = location.protocol;
+                })
+            }
+        }
         constructor() {
             super();
         }
@@ -72,6 +88,22 @@ if (Polymer.Element) {
             page: {
                 type: String,
                 notify: true
+            }
+        },
+
+        ready: function () {
+            if (location.host.indexOf('dev') === 0) {
+                var links = Polymer.dom(this.root).querySelectorAll("a");
+                links.forEach(link => {
+                    link.hostname = 'dev' + link.hostname;
+                })
+            }
+            if (location.host.indexOf('localhost') === 0) {
+                var links = Polymer.dom(this.root).querySelectorAll("a");
+                links.forEach(link => {
+                    link.hostname = location.host;
+                    link.protocol = location.protocol;
+                })
             }
         },
         onRoleChange: function () {
