@@ -5,6 +5,7 @@
   "main": "lss-manage-side-menu.html",
   "dependencies": {},
   "devDependencies": {
+    "clang-format": "^1.0.55",
     "jshint": "^2.9.5",
     "browser-sync": "^2.18.2",
     "gulp": "^3.9.1",
@@ -12,7 +13,9 @@
   },
   "scripts": {
     "lint": "jshint \"lss-manage-side-menu.js\" --extract=always",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "demo:setup": "cd demo && bower update && tsc",
+    "demo": "npm run demo:setup"
   },
   "repository": {
     "type": "git",
