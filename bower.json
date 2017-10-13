@@ -1,6 +1,6 @@
 {
   "name": "lss-manage-side-menu",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "A iron selecter that can be used in all manage apps for Leavitt",
   "authors": [
     "Leavitt Software Solutions"
@@ -14,6 +14,7 @@
   "main": "lss-manage-side-menu.html",
   "license": "MIT",
   "ignore": [
+    "demo",
     "node_modules",
     "bower_components",
     "package.json",

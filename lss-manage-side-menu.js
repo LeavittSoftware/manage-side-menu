@@ -73,6 +73,9 @@ if (Polymer.Element) {
       devPrefix: {type: String, value: ''}
     },
     observers: ['onRoleChange(roles.splices)', '_isDevChanged(isDev)'],
+    _isDevChanged(isDev) {
+      this.devPrefix = isDev ? 'dev' : '';
+    },
     onRoleChange: function() {
       // Toggles visibility of links to in menu based upon display-role
       // attribute  set on each link and users current permissions

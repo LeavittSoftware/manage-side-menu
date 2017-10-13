@@ -7,8 +7,9 @@
     "filesystem-bower-resolver": "^1.2.0"
   },
   "scripts": {
-    "postinstall": "bower install",
+    "postinstall": "bower install && bower update lss-manage-side-menu",
     "lint": "tslint \"*.ts\"",
-    "test": "npm run lint"
+    "build": "npm run lint && tsc",
+    "serve": "polymer serve"
   }
 }
