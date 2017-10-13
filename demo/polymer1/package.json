@@ -4,7 +4,7 @@
     "bower": "^1.8.2",
     "filesystem-bower-resolver": "^1.2.0",
     "tslint": "*",
-    "typescript": "^2.3.4"
+    "typescript": "2.3.4"
   },
   "scripts": {
     "postinstall": "bower install && bower update lss-manage-side-menu",
