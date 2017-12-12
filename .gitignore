@@ -4,3 +4,4 @@ node_modules
 build
 !build/bundled/publish.csproj
 /src/**/*.js
+demo/lss-side-menu-demo\.js
