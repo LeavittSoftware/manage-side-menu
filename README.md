@@ -20,12 +20,12 @@ To install use: `bower install --save manage-side-menu`
              <app-drawer id="drawer">
                <div class='app-drawer'>
                     <app-toolbar><img src="/images/Leavitt-Group-Bw.png" alt="Leavitt Group"></app-toolbar>
-                    <manage-side-menu roles="[[roles]]" page="[[page]]" id="LssManageAppDrawer"></manage-side-menu>
+                    <manage-side-menu roles="[[roles]]" selected="[[selected]]" id="LssManageAppDrawer"></manage-side-menu>
                 </div>
              </app-drawer>
 
         When using a different app-routing system on a stand a lone url you can simply replace the page tag with the name.
-                    <manage-side-menu roles="[[roles]]" page="sample-app" id="LssManageAppDrawer"></manage-side-menu>
+                    <manage-side-menu roles="[[roles]]" selected="sample-app" id="LssManageAppDrawer"></manage-side-menu>
         
         
 ```

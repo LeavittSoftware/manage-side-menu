@@ -50,7 +50,7 @@ export class SideMenuDemo extends DeclarativeEventListeners
 
 <h3>LSS Side Menu Demo</h3>
 <div class="menu-container">
-    <manage-side-menu is-dev="[[isDev]]" roles="[[roles]]" page="log-parser"></manage-side-menu>
+    <manage-side-menu is-dev="[[isDev]]" roles="[[roles]]" selected="log-parser"></manage-side-menu>
 </div>
 <paper-input label="Role Name" value="{{role}}"></paper-input>
 <paper-button id="addRoleButton" raised>Add Role</paper-button>
