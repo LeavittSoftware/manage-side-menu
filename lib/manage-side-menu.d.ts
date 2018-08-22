@@ -2,10 +2,10 @@ import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/iron-icon';
 import '@polymer/iron-iconset-svg';
 import { PolymerElement } from '@polymer/polymer';
-export declare class ManageSideMenuElement extends PolymerElement {
-    page: string;
+declare const ManageSideMenuElement_base: typeof PolymerElement & import("@leavittsoftware/user-manager/lib/authenticated-roles-mixin").AuthenticatedRolesMixinConstructor;
+export declare class ManageSideMenuElement extends ManageSideMenuElement_base {
+    selected: string;
     devPrefix: string;
-    roles: Array<any>;
     isDev: any;
     links: NodeList;
     categories: NodeList;
@@ -13,3 +13,4 @@ export declare class ManageSideMenuElement extends PolymerElement {
     _onRoleChange(): void;
     static readonly template: HTMLTemplateElement;
 }
+export {};

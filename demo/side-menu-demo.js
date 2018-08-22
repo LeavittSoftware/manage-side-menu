@@ -23,32 +23,32 @@ let SideMenuDemo = class SideMenuDemo extends DeclarativeEventListeners(PolymerE
         this.roles = [];
     }
     static get template() {
-        return html ` <style>
+        return html `<style>
     :host {
-       display: block;
-       margin: 16px;
-   }
+        display: block;
+        margin: 16px;
+    }
 
-   h3 {
-       margin: 8px;
-   }
+    h3 {
+        margin: 8px;
+    }
 
-   .menu-container {
-       margin: 8px;
-       height: 400px;
-       width: 300px;
-       border: 1px dashed black;
-       overflow-y: auto;
-   }
+    .menu-container {
+        margin: 8px;
+        height: 400px;
+        width: 300px;
+        border: 1px dashed black;
+        overflow-y: auto;
+    }
 
-   paper-button {
-       margin: 8px;
-   }
+    paper-button {
+        margin: 8px;
+    }
 </style>
 
 <h3>LSS Side Menu Demo</h3>
 <div class="menu-container">
-   <manage-side-menu is-dev="[[isDev]]" roles="[[roles]]" page="log-parser"></manage-side-menu>
+    <manage-side-menu is-dev="[[isDev]]" roles="[[roles]]" selected="log-parser"></manage-side-menu>
 </div>
 <paper-input label="Role Name" value="{{role}}"></paper-input>
 <paper-button id="addRoleButton" raised>Add Role</paper-button>

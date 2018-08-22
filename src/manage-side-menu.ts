@@ -2,14 +2,15 @@ import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/iron-icon';
 import '@polymer/iron-iconset-svg';
 
+import {authenticatedRolesMixin} from '@leavittsoftware/user-manager/lib/authenticated-roles-mixin';
 import {customElement, observe, property, queryAll} from '@polymer/decorators';
 import {html, PolymerElement} from '@polymer/polymer';
 
 @customElement('manage-side-menu')
-export class ManageSideMenuElement extends PolymerElement {
-  @property({reflectToAttribute: true, type: String}) page: string = '';
+export class ManageSideMenuElement extends authenticatedRolesMixin
+(PolymerElement) {
+  @property({reflectToAttribute: true, type: String}) selected: string = '';
   @property({reflectToAttribute: true, type: String}) devPrefix: string = '';
-  @property({reflectToAttribute: true, type: Array}) roles: Array<any> = [];
   @property({reflectToAttribute: true, type: Boolean}) isDev;
   @queryAll('a') links: NodeList;
   @queryAll('div[category]') categories: NodeList;
@@ -165,7 +166,7 @@ export class ManageSideMenuElement extends PolymerElement {
 		</defs>
 	</svg>
 </iron-iconset-svg>
-<iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
+<iron-selector selected="[[selected]]" attr-for-selected="name" class="drawer-list" role="navigation">
 	<a name="overview" href$="https://[[devPrefix]]manage.leavitt.com/overview">
 		<iron-icon icon="nav:apps"></iron-icon>Overview</a>
 	<div class="side-nav-section-end"></div>
