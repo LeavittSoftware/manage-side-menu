@@ -1,11 +1,67 @@
-<link rel="import" href="../polymer/polymer.html">
-<link rel="import" href="../iron-selector/iron-selector.html">
-<link rel="import" href="../iron-icon/iron-icon.html">
-<link rel="import" href="../iron-iconset-svg/iron-iconset-svg.html">
+import '@polymer/iron-selector/iron-selector.js';
+import '@polymer/iron-icon';
+import '@polymer/iron-iconset-svg';
 
-<dom-module id="lss-manage-side-menu">
-	<template>
-		<style>
+import {customElement, observe, property, queryAll} from '@polymer/decorators';
+import {html, PolymerElement} from '@polymer/polymer';
+
+@customElement('manage-side-menu')
+export class ManageSideMenu extends PolymerElement {
+  @property({reflectToAttribute: true, type: String}) page: string = '';
+  @property({reflectToAttribute: true, type: String}) devPrefix: string = '';
+  @property({reflectToAttribute: true, type: Array}) roles: Array<any> = [];
+  @property({reflectToAttribute: true, type: Boolean}) isDev;
+  @queryAll('a') links: NodeList;
+  @queryAll('div[category]') categories: NodeList;
+
+  static get observers() {
+    return ['_onRoleChange(roles.splices)', '_isDevChanged(isDev)'];
+  }
+
+  _isDevChanged(isDev) {
+    this.devPrefix = isDev ? 'dev' : '';
+  }
+
+  _onRoleChange() {
+    // Toggles visibility of links to in menu based upon display-role
+    // attribute  set on each link and users current
+
+    this.links.forEach((link: HTMLElement) => {
+      let permissionAttribute = link.attributes['display-role'];
+      if (typeof permissionAttribute !== 'undefined' &&
+          permissionAttribute !== null) {
+        const permission = permissionAttribute.value;
+
+        if (this.roles.indexOf(permission) === -1) {
+          link.style.display = 'none';
+        } else {
+          link.style.display = '';
+        }
+      }
+    });
+
+    // Toggles visibility of menu header sections based upon visibility of
+    // children link elements.  Headers with no visible children links are
+    // hidden.  Headers  with one or more visible children are shown
+    this.categories.forEach((category: HTMLElement) => {
+      let visibleSubcategoryList = this.querySelectorAll(
+          'a[parent-category="' + category.getAttribute('category') + '"]');
+      visibleSubcategoryList =
+          Array.prototype.slice.call(visibleSubcategoryList);
+      let visibleSubcategories: Array<HTMLElement> = [];
+      visibleSubcategoryList.forEach((subCat: HTMLElement) => {
+        if (subCat.style.display !== 'none')
+          visibleSubcategories.push(subCat);
+      });
+      if (visibleSubcategories.length === 0) {
+        category.style.display = 'none';
+      } else {
+        category.style.display = '';
+      }
+    });
+  }
+  static get template() {
+    return html`<style>
 			.side-nav-section {
 				color: #000;
 				font-size: 13px;
@@ -183,7 +239,6 @@
 				<iron-icon icon="nav:insert-chart"></iron-icon>Producer Code</a>
 			</a>
 			<div class="side-nav-section-end" category="5"></div>
-		</iron-selector>
-	</template>
-	<script src="lss-manage-side-menu.js"></script>
-</dom-module>
+		</iron-selector>`;
+  }
+}
