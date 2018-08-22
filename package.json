@@ -1,32 +1,35 @@
 {
-  "name": "lss-manage-side-menu",
+  "name": "@leavittsoftware/manage-side-menu",
   "version": "1.0.1",
   "description": "Leavitt Manage Side Menu Hybrid",
-  "main": "lss-manage-side-menu.html",
-  "dependencies": {},
+  "main": "manage-side-menu.html",
+  "dependencies": {
+    "@polymer/decorators": "^3.0.0",
+    "@polymer/iron-icon": "^3.0.0-pre.21",
+    "@polymer/iron-iconset-svg": "^3.0.0-pre.21",
+    "@polymer/iron-selector": "^3.0.0-pre.21",
+    "@webcomponents/webcomponentsjs": "^2.1.0"
+  },
   "devDependencies": {
-    "clang-format": "^1.0.55",
-    "jshint": "^2.9.5",
-    "browser-sync": "^2.18.2",
     "gulp": "^3.9.1",
-    "bower": "*"
+    "browser-sync": "^2.24.6",
+    "clang-format": "^1.2.2",
+    "tslint": "4.0.2",
+    "typescript": "^3.0.1"
   },
   "scripts": {
-    "lint": "jshint \"lss-manage-side-menu.js\" --extract=always",
-    "test": "npm run lint && npm run p1-demo:setup && npm run p2-demo:setup",
-    "p1-demo:setup": "cd demo/polymer1 && npm i && npm run build",
-    "p2-demo:setup": "cd demo/polymer2 && npm i && npm run build",
-    "p1-demo:serve": "cd demo/polymer1 && npm run serve",
-    "p2-demo:serve": "cd demo/polymer2 && npm run serve"
+    "start": "tsc && cd demo && npm start",
+    "update-demo": "cd demo && npm run update:local-package",
+    "lint": "tslint \"/*.ts\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LssPolymerElements/lss-manage-side-menu.git"
+    "url": "git+https://github.com/LeavittSoftware/manage-side-menu.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LssPolymerElements/lss-manage-side-menu/issues"
+    "url": "https://github.com/LeavittSoftware/manage-side-menu/issues"
   },
-  "homepage": "https://github.com/LssPolymerElements/lss-manage-side-menu#readme"
+  "homepage": "https://github.com/LeavittSoftware/manage-side-menu/#readme"
 }
