@@ -1,9 +1,6 @@
-dist
-node_modules
-build
-/src/**/*.js
-/demo/**/*.js
+node_modules/
+*.map
+*.tgz
+demo/*.js
 
 demo/package-lock\.json
-
-*.tgz
