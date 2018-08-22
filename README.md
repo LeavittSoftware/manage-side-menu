@@ -1,10 +1,10 @@
 # manage-side-menu
 [![Build status](https://ci.appveyor.com/api/projects/status/t2n1whcpamse2sy9/branch/master?svg=true)](https://ci.appveyor.com/project/aarondrabeck/manage-side-menu/branch/master)
-[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LssPolymerElements/manage-side-menu)
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/LeavittSoftware/manage-side-menu)
 
 To install use: `bower install --save manage-side-menu`
 
-[ LIVE DEMO AND API ](https://www.webcomponents.org/element/LssPolymerElements/manage-side-menu)
+[ LIVE DEMO AND API ](https://www.webcomponents.org/element/LeavittSoftware/manage-side-menu)
 
 ```html
         <h3>LSS Manage Side Menu Demo</h3>
