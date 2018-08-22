@@ -1,7 +1,9 @@
-bower_components
 dist
 node_modules
 build
-!build/bundled/publish.csproj
 /src/**/*.js
-demo/lss-side-menu-demo\.js
+/demo/**/*.js
+
+demo/package-lock\.json
+
+*.tgz
