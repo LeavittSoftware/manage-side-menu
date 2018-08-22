@@ -75,7 +75,7 @@ export class ManageSideMenuElement extends authenticatedRolesMixin
 
 	a {
 		display: block;
-		padding: 5px 30px;
+		padding: 5px 8px;
 		line-height: 40px;
 		border-left: 4px solid transparent;
 		text-decoration: none;
