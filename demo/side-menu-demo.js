@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 import '@polymer/paper-button';
 import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-toggle-button';
+import '@leavittsoftware/manage-side-menu/lib/manage-side-menu';
 import { customElement, listen, property } from '@polymer/decorators';
 import { DeclarativeEventListeners } from '@polymer/decorators/lib/declarative-event-listeners.js';
 import { html, PolymerElement } from '@polymer/polymer';
@@ -53,9 +54,7 @@ let SideMenuDemo = class SideMenuDemo extends DeclarativeEventListeners(PolymerE
 <paper-input label="Role Name" value="{{role}}"></paper-input>
 <paper-button id="addRoleButton" raised>Add Role</paper-button>
 <paper-button id="clearRolesButton" raised> Clear Roles</paper-button>
-<paper-toggle-button checked="{{isDev}}">Is Development</paper-toggle-button>
-<script src="lss-side-menu-demo.js">
-</script>`;
+<paper-toggle-button checked="{{isDev}}">Is Development</paper-toggle-button>`;
     }
 };
 __decorate([
