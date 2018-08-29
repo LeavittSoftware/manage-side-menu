@@ -6,7 +6,7 @@ declare const ManageSideMenuElement_base: typeof PolymerElement & import("@leavi
 export declare class ManageSideMenuElement extends ManageSideMenuElement_base {
     selected: string;
     devPrefix: string;
-    isDev: any;
+    isDev: boolean;
     links: NodeList;
     categories: NodeList;
     _isDevChanged(isDev: boolean): void;

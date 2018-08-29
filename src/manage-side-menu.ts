@@ -11,7 +11,7 @@ export class ManageSideMenuElement extends authenticatedRolesMixin
 (PolymerElement) {
   @property({reflectToAttribute: true, type: String}) selected: string = '';
   @property({reflectToAttribute: true, type: String}) devPrefix: string = '';
-  @property({reflectToAttribute: true, type: Boolean}) isDev;
+  @property({reflectToAttribute: true, type: Boolean}) isDev: boolean;
   @queryAll('a') links: NodeList;
   @queryAll('div[category]') categories: NodeList;
 
