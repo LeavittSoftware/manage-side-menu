@@ -2,16 +2,16 @@ import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/iron-icon';
 import '@polymer/iron-iconset-svg';
 
+import {titaniumDevDetectionMixin} from '@leavittsoftware/titanium-elements/lib/titanium-dev-detection-mixin';
 import {authenticatedRolesMixin} from '@leavittsoftware/user-manager/lib/authenticated-roles-mixin';
 import {customElement, observe, property, queryAll} from '@polymer/decorators';
 import {html, PolymerElement} from '@polymer/polymer';
 
 @customElement('manage-side-menu')
-export class ManageSideMenuElement extends authenticatedRolesMixin
-(PolymerElement) {
+export class ManageSideMenuElement extends titaniumDevDetectionMixin
+(authenticatedRolesMixin(PolymerElement)) {
   @property({reflectToAttribute: true, type: String}) selected: string = '';
   @property({reflectToAttribute: true, type: String}) devPrefix: string = '';
-  @property({reflectToAttribute: true, type: Boolean}) isDev: boolean;
   @queryAll('a') links: NodeList;
   @queryAll('div[category]') categories: NodeList;
 
