@@ -5,3 +5,4 @@ CODEOWNERS
 appveyor.yml
 gulpfile.js
 tslint.json
+/lib/**
