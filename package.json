@@ -7,6 +7,7 @@
     "@leavittsoftware/titanium-elements": "^1.0.22",
     "@leavittsoftware/user-manager": "^7.0.48",
     "@polymer/decorators": "^3.0.0",
+    "@polymer/iron-flex-layout": "^3.0.1",
     "@polymer/iron-icon": "^3.0.0-pre.25",
     "@polymer/iron-iconset-svg": "^3.0.0-pre.25",
     "@polymer/iron-selector": "^3.0.0-pre.25",
