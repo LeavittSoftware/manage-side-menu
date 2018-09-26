@@ -129,15 +129,22 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           roles: ['Email Template Manager Access'],
           url: 'manage.leavitt.com/email-template-manager',
           icon: 'nav:email',
-          name: 'Email Template Manager',
+          name: 'Email Templates',
           selectedName: 'email-template-manager'
         },
         {
           roles: ['Permission Manager App Access'],
           url: 'manage.leavitt.com/permission-manager',
           icon: 'nav:security',
-          name: 'Permission Manager',
+          name: 'Permissions',
           selectedName: 'permission-manager'
+        },
+        {
+          roles: ['Eloqua Marketing Admin'],
+          url: 'marketing.leavitt.com/admin/',
+          icon: 'nav:email-lock',
+          name: 'Eloqua Marketing',
+          selectedName: 'marketing-admin'
         },
       ]
     },
@@ -158,7 +165,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           roles: ['BookOfBusinessChange Read Access'],
           url: 'manage.leavitt.com/book-of-business-changes-manager',
           icon: 'nav:insert-chart',
-          name: 'Book of Business Manager',
+          name: 'Book of Business',
           selectedName: 'book-of-business-changes-manager'
         },
         {
@@ -172,7 +179,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           roles: ['StandardChartOfAccount Read Access'],
           url: 'manage.leavitt.com/standard-chart-of-accounts-manager',
           icon: 'nav:insert-chart',
-          name: 'Chart of Accounts Manager',
+          name: 'Chart of Accounts',
           selectedName: 'standard-chart-of-accounts-manager'
         },
         {
@@ -193,7 +200,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           roles: ['StandardizedLOB Read Access'],
           url: 'manage.leavitt.com/line-of-business-manager',
           icon: 'nav:insert-chart',
-          name: 'Line of Business Manager',
+          name: 'Line of Business',
           selectedName: 'line-of-business-manager'
         },
         {
@@ -339,6 +346,9 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
 			</g>
 			<g id="account-settings">
 				<path d="M9,4A4,4 0 0,0 5,8A4,4 0 0,0 9,12A4,4 0 0,0 13,8A4,4 0 0,0 9,4M9,14C6.33,14 1,15.33 1,18V20H12.08C12.03,19.67 12,19.34 12,19C12,17.5 12.5,16 13.41,14.8C11.88,14.28 10.18,14 9,14M18,14C17.87,14 17.76,14.09 17.74,14.21L17.55,15.53C17.25,15.66 16.96,15.82 16.7,16L15.46,15.5C15.35,15.5 15.22,15.5 15.15,15.63L14.15,17.36C14.09,17.47 14.11,17.6 14.21,17.68L15.27,18.5C15.25,18.67 15.24,18.83 15.24,19C15.24,19.17 15.25,19.33 15.27,19.5L14.21,20.32C14.12,20.4 14.09,20.53 14.15,20.64L15.15,22.37C15.21,22.5 15.34,22.5 15.46,22.5L16.7,22C16.96,22.18 17.24,22.35 17.55,22.47L17.74,23.79C17.76,23.91 17.86,24 18,24H20C20.11,24 20.22,23.91 20.24,23.79L20.43,22.47C20.73,22.34 21,22.18 21.27,22L22.5,22.5C22.63,22.5 22.76,22.5 22.83,22.37L23.83,20.64C23.89,20.53 23.86,20.4 23.77,20.32L22.7,19.5C22.72,19.33 22.74,19.17 22.74,19C22.74,18.83 22.73,18.67 22.7,18.5L23.76,17.68C23.85,17.6 23.88,17.47 23.82,17.36L22.82,15.63C22.76,15.5 22.63,15.5 22.5,15.5L21.27,16C21,15.82 20.73,15.65 20.42,15.53L20.23,14.21C20.22,14.09 20.11,14 20,14M19,17.5A1.5,1.5 0 0,1 20.5,19A1.5,1.5 0 0,1 19,20.5C18.16,20.5 17.5,19.83 17.5,19A1.5,1.5 0 0,1 19,17.5Z" />
+			</g>
+			<g id="email-lock">
+				<path d="M20.5,0A2.5,2.5 0 0,1 23,2.5V3A1,1 0 0,1 24,4V8A1,1 0 0,1 23,9H18A1,1 0 0,1 17,8V4A1,1 0 0,1 18,3V2.5A2.5,2.5 0 0,1 20.5,0M12,11L4,6V8L12,13L16.18,10.39C16.69,10.77 17.32,11 18,11H22V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H15V8C15,8.36 15.06,8.7 15.18,9L12,11M20.5,1A1.5,1.5 0 0,0 19,2.5V3H22V2.5A1.5,1.5 0 0,0 20.5,1Z" />
 			</g>
 		</defs>
 	</svg>
