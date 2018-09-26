@@ -250,7 +250,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
   static get template() {
     return html`<style>
 	app-category {
-		padding: 5px 30px;
+		padding: 5px 0;
 		@apply --layout-vertical;
 		border-bottom: 1px solid #ddd;
 	}
@@ -268,10 +268,6 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
 		text-decoration: none;
 		color: #767676;
 		font-size: 13px;
-	}
-
-	a[uncategorized] {
-		padding: 5px 38px;
 	}
 
 	a:hover {
