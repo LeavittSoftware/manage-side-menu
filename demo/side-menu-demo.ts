@@ -31,8 +31,12 @@ export class SideMenuDemo extends DeclarativeEventListeners
     super.ready();
     window.dispatchEvent(new CustomEvent('um-roles', {
       detail: {
-        roles:
-            ['Hire Employee', 'App Manager Access', 'Manual Entry Tool Access']
+        roles: [
+          'Hire Employee',
+          'App Manager Access',
+          'Manual Entry Tool Access',
+          'Job Role Manager Global Admin'
+        ]
       }
     }));
   }

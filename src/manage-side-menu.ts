@@ -271,7 +271,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
 
 	a {
 		display: block;
-		padding: 4px 8px;
+		padding: 2px 8px;
 		line-height: 40px;
 		text-decoration: none;
 		color: #000;
