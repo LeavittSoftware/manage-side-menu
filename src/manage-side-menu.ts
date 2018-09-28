@@ -221,12 +221,17 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
     }
   ];
 
+  ready() {
+    super.ready();
+    this._onRoleChange();
+  }
+
   @observe('isDev')
   _isDevChanged(isDev: boolean) {
     this.devPrefix = isDev ? 'dev' : '';
   }
 
-  @observe('roles.splices')
+  @observe('roles.length')
   _onRoleChange() {
     this.categories.forEach((category: Category, categoryIndex: number) => {
       let hideCategory = true;
@@ -252,34 +257,46 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
 	app-category {
 		padding: 5px 0;
 		@apply --layout-vertical;
-		border-bottom: 1px solid #ddd;
 	}
 
 	category-title {
-		line-height: 40px;
-		color: #000;
+		line-height: 16px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+		color: #757575;
 		font-size: 13px;
+    padding: 18px 0 10px 10px;;
 	}
 
 	a {
 		display: block;
-		padding: 5px 8px;
+		padding: 2px 8px;
 		line-height: 40px;
 		text-decoration: none;
-		color: #767676;
-		font-size: 13px;
+		color: #000;
+		font-size: 15px;
 	}
 
 	a:hover {
-		background-color: rgba(0, 0, 0, .03);
-	}
+		background-color: rgba(0, 0, 0, .06);
+  }
+  
+  a:hover iron-icon {
+    color:#000;
+  }
 
 	iron-icon {
-		padding-right: 24px;
+    color:#757575;
+		padding-right: 12px;
 	}
 
 	.drawer-list a.iron-selected iron-icon {
-		color: var(--app-secondary-color, #2196F3) !important;
+		color: var(--app-secondary-color, #3367d6) !important;
+  }
+  
+  .drawer-list a.iron-selected  {
+		color: var(--app-secondary-color, #3367d6) !important;
 	}
 
 	[hidden] {
