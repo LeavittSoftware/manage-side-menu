@@ -1,4 +1,3 @@
-import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/iron-icon';
 import '@polymer/iron-iconset-svg';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
@@ -9,14 +8,18 @@ import {customElement, observe, property} from '@polymer/decorators';
 import {html, PolymerElement} from '@polymer/polymer';
 
 type AppLink = {
-  icon: string; name: string; roles: Array<string>;
-  url: string, selectedName: string;
-  hidden?: boolean;
+  icon: string,
+  name: string,
+  roles: Array<string>,
+  url: string,
+  key: string,
+  hidden?: boolean
 };
 
 type Category = {
-  name: string; links: Array<AppLink>;
-  hidden?: boolean;
+  name: string,
+  links: Array<AppLink>,
+  hidden?: boolean
 };
 
 @customElement('manage-side-menu')
@@ -26,14 +29,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
 
   @property({reflectToAttribute: true, type: String}) devPrefix: string = '';
 
-  @property()
-  uncategorizedLinks: Array<AppLink> = [{
-    icon: 'nav:apps',
-    name: 'Overview',
-    url: 'manage.leavitt.com/overview',
-    roles: [],
-    selectedName: 'overview'
-  }];
+  @property({type: Array}) pinnedLinks: Array<AppLink> = [];
 
   @property()
   categories: Array<Category> = [
@@ -44,7 +40,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
         name: 'Log Parser',
         url: 'manage.leavitt.com/log-parser/apps',
         roles: ['View All Logs'],
-        selectedName: 'log-parser'
+        key: 'log-parser'
       }]
     },
     {
@@ -55,56 +51,56 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           name: 'Employee Manager',
           url: 'manage.leavitt.com/employee-manager/view/all/',
           roles: ['Employee Manager Global Admin'],
-          selectedName: 'employee-manager'
+          key: 'employee-manager'
         },
         {
           icon: 'nav:add-circle',
           name: 'Hire',
           url: 'manage.leavitt.com/hire-form/step1',
           roles: ['Hire Employee'],
-          selectedName: 'hire-form'
+          key: 'hire-form'
         },
         {
           roles: ['Job Role Manager Global Admin'],
           url: 'manage.leavitt.com/job-role-types-manager',
           icon: 'nav:memory',
           name: 'Job Role Types',
-          selectedName: 'job-role-types-manager'
+          key: 'job-role-types-manager'
         },
         {
           roles: ['Name Changer Admin'],
           url: 'namechanger.leavitt.com',
           icon: 'nav:name-change',
           name: 'Name Changer',
-          selectedName: 'name-changer'
+          key: 'name-changer'
         },
         {
           roles: ['People Search User'],
           url: 'peoplesearch.leavitt.com',
           icon: 'nav:search',
           name: 'People Search',
-          selectedName: 'people-search'
+          key: 'people-search'
         },
         {
           roles: ['Terminate Employee'],
           url: 'manage.leavitt.com/employee-termination-form',
           icon: 'nav:remove-circle',
           name: 'Terminate',
-          selectedName: 'employee-termination-form'
+          key: 'employee-termination-form'
         },
         {
           roles: ['Transfer Employee'],
           url: 'manage.leavitt.com/employee-transfer-form',
           icon: 'nav:compare-arrows',
           name: 'Transfer',
-          selectedName: 'employee-transfer-form'
+          key: 'employee-transfer-form'
         },
         {
           roles: ['UVIS Member List Admin'],
           url: 'manage.leavitt.com/uvis-member-list',
           icon: 'nav:list',
           name: 'UVIS Member List',
-          selectedName: 'uvis-member-list'
+          key: 'uvis-member-list'
         },
       ]
     },
@@ -116,35 +112,35 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           url: 'manage.leavitt.com/application-manager',
           icon: 'nav:settings-applications',
           name: 'Application Manager',
-          selectedName: 'application-manager'
+          key: 'application-manager'
         },
         {
           roles: ['Company Manager Access'],
           url: 'manage.leavitt.com/company-manager',
           icon: 'nav:business',
           name: 'Company Manager',
-          selectedName: 'company-manager'
+          key: 'company-manager'
         },
         {
           roles: ['Email Template Manager Access'],
           url: 'manage.leavitt.com/email-template-manager',
           icon: 'nav:email',
           name: 'Email Templates',
-          selectedName: 'email-template-manager'
+          key: 'email-template-manager'
         },
         {
           roles: ['Permission Manager App Access'],
           url: 'manage.leavitt.com/permission-manager',
           icon: 'nav:security',
           name: 'Permissions',
-          selectedName: 'permission-manager'
+          key: 'permission-manager'
         },
         {
           roles: ['Eloqua Marketing Admin'],
           url: 'marketing.leavitt.com/admin/',
           icon: 'nav:email-lock',
           name: 'Eloqua Marketing',
-          selectedName: 'marketing-admin'
+          key: 'marketing-admin'
         },
       ]
     },
@@ -155,7 +151,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
         url: 'manage.leavitt.com/outbound-caller-id-group-manager',
         icon: 'nav:settings-phone',
         name: 'Outbound Caller Id',
-        selectedName: 'outbound-caller-id-group-manager'
+        key: 'outbound-caller-id-group-manager'
       }]
     },
     {
@@ -166,64 +162,110 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           url: 'manage.leavitt.com/book-of-business-changes-manager',
           icon: 'nav:insert-chart',
           name: 'Book of Business',
-          selectedName: 'book-of-business-changes-manager'
+          key: 'book-of-business-changes-manager'
         },
         {
           roles: ['C-Report Comment Access'],
           url: 'creportcomments.leavitt.com',
           icon: 'nav:insert-chart',
           name: 'C-Report Comments',
-          selectedName: 'creport-comment'
+          key: 'creport-comment'
         },
         {
           roles: ['StandardChartOfAccount Read Access'],
           url: 'manage.leavitt.com/standard-chart-of-accounts-manager',
           icon: 'nav:insert-chart',
           name: 'Chart of Accounts',
-          selectedName: 'standard-chart-of-accounts-manager'
+          key: 'standard-chart-of-accounts-manager'
         },
         {
           roles: ['Domo Manager Admin'],
           url: 'domomanager.leavitt.com',
           icon: 'nav:insert-chart',
           name: 'Domo Manager',
-          selectedName: 'domo-manager'
+          key: 'domo-manager'
         },
         {
           roles: ['StandardizedGLDepartment Read Access'],
           url: 'manage.leavitt.com/standardized-gl-department-mapper',
           icon: 'nav:insert-chart',
           name: 'GL Department Mapper',
-          selectedName: 'standardized-gl-department-mapper'
+          key: 'standardized-gl-department-mapper'
         },
         {
           roles: ['StandardizedLOB Read Access'],
           url: 'manage.leavitt.com/line-of-business-manager',
           icon: 'nav:insert-chart',
           name: 'Line of Business',
-          selectedName: 'line-of-business-manager'
+          key: 'line-of-business-manager'
         },
         {
           roles: ['Manual Entry Tool Access'],
           url: 'manualentrytool.leavitt.com',
           icon: 'nav:insert-chart',
           name: 'Manual Entry Tool',
-          selectedName: 'manual-entry-tool'
+          key: 'manual-entry-tool'
         },
         {
           roles: ['Producer Code Admin'],
           url: 'producercodemanager.leavitt.com',
           icon: 'nav:insert-chart',
           name: 'Producer Code',
-          selectedName: 'producer-code-manager'
+          key: 'producer-code-manager'
         },
       ]
     }
   ];
 
+  private _pinnedKeys: Array<string> = [];
+
   ready() {
     super.ready();
     this._onRoleChange();
+    window.addEventListener(
+        'manage-side-menu-fav-update',
+        this._loadPinnedFromLocalStorage.bind(this));
+    this._loadPinnedFromLocalStorage();
+  }
+
+  protected _isSelected(key: string, selected: string) {
+    return key === selected;
+  }
+
+  protected _togglePinnedItem(e: CustomEvent&{model: {link: AppLink}}) {
+    e.preventDefault();
+
+    const link = e.model.link;
+    const index = this._pinnedKeys.indexOf(link.key);
+
+    if (index > -1) {
+      this._pinnedKeys.splice(index, 1);
+    } else {
+      this._pinnedKeys.push(link.key);
+    }
+
+    this._saveToLocalStorage();
+    window.dispatchEvent(new Event('manage-side-menu-fav-update'));
+  }
+
+  private _loadPinnedFromLocalStorage() {
+    this._pinnedKeys =
+        JSON.parse(localStorage.getItem('manage-side-menu-favorites') || '[]');
+    const links = this.categories.flatMap(o => o.links);
+    this.pinnedLinks = links.filter(o => this._pinnedKeys.indexOf(o.key) > -1);
+  }
+
+  private _saveToLocalStorage() {
+    localStorage.setItem(
+        'manage-side-menu-favorites', JSON.stringify(this._pinnedKeys));
+  }
+
+  protected _isPinned(item: AppLink) {
+    return this.pinnedLinks.indexOf(item) > -1;
+  }
+
+  protected _pinTitle(item: AppLink) {
+    return this._isPinned(item) ? 'Unpin' : 'Pin';
   }
 
   @observe('isDev')
@@ -261,41 +303,64 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
 
 	category-title {
 		line-height: 16px;
-    font-weight: 400;
-    letter-spacing: .02em;
-    text-transform: uppercase;
+		font-weight: 400;
+		letter-spacing: .02em;
+		text-transform: uppercase;
 		color: #757575;
 		font-size: 13px;
-    padding: 18px 0 10px 10px;;
+		padding: 18px 0 10px 10px;
+		;
 	}
 
 	a {
-		display: block;
+		@apply --layout-horizontal;
+		@apply --layout-center;
 		padding: 2px 8px;
-		line-height: 40px;
-		text-decoration: none;
 		color: #000;
+		text-decoration: none;
+	}
+
+	link-title {
+		@apply --layout-flex-auto;
+		line-height: 40px;
 		font-size: 15px;
 	}
 
 	a:hover {
 		background-color: rgba(0, 0, 0, .06);
-  }
-  
-  a:hover iron-icon {
-    color:#000;
-  }
+	}
+
+	a:hover iron-icon[link] {
+		color: #000;
+	}
 
 	iron-icon {
-    color:#757575;
+		color: #757575;
 		padding-right: 12px;
 	}
 
-	.drawer-list a.iron-selected iron-icon {
+	iron-icon[unpinned] {
+		visibility: hidden;
+		opacity: 0;
+		transition: visibility 0s linear 300ms, opacity 300ms;
+	}
+
+	a:hover iron-icon[unpinned] {
+		visibility: visible;
+		opacity: 1;
+		transition: visibility 0s linear 0s, opacity 300ms;
+	}
+
+	iron-icon[pinned] {
+		color: #3367d6;
+		visibility: visible;
+	}
+
+	[selected] iron-icon[link] {
 		color: var(--app-secondary-color, #3367d6) !important;
-  }
-  
-  .drawer-list a.iron-selected  {
+	}
+
+	[selected] {
 		color: var(--app-secondary-color, #3367d6) !important;
 	}
 
@@ -363,26 +428,32 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
 			<g id="email-lock">
 				<path d="M20.5,0A2.5,2.5 0 0,1 23,2.5V3A1,1 0 0,1 24,4V8A1,1 0 0,1 23,9H18A1,1 0 0,1 17,8V4A1,1 0 0,1 18,3V2.5A2.5,2.5 0 0,1 20.5,0M12,11L4,6V8L12,13L16.18,10.39C16.69,10.77 17.32,11 18,11H22V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H15V8C15,8.36 15.06,8.7 15.18,9L12,11M20.5,1A1.5,1.5 0 0,0 19,2.5V3H22V2.5A1.5,1.5 0 0,0 20.5,1Z" />
 			</g>
+			<g id="pin">
+				<path d="M13 4V2H5v2h1v5l-1.5 1.5V12H8v4l1 1 1-1v-4h3.5v-1.5L12 9V4z" fill-rule="evenodd"></path>
+			</g>
 		</defs>
 	</svg>
 </iron-iconset-svg>
-<iron-selector selected="[[selected]]" attr-for-selected="name" class="drawer-list" role="navigation">
-	<template is="dom-repeat" items="[[uncategorizedLinks]]">
-		<a uncategorized name="[[item.selectedName]]" href="[[_getHref(item, devPrefix)]]" hidden$="[[item.hidden]]">
-			<iron-icon icon="[[item.icon]]"></iron-icon>[[item.name]]
-		</a>
-	</template>
-</iron-selector>
+
+<category-title hidden$="[[!pinnedLinks.length]]" >Pinned</category-title>
+<template is="dom-repeat" items="[[pinnedLinks]]" as="link">
+	<a selected$="[[_isSelected(link.key, selected)]]" href="[[_getHref(link, devPrefix)]]" hidden$="[[link.hidden]]">
+		<iron-icon link icon="[[link.icon]]"></iron-icon>
+		<link-title>[[link.name]]</link-title>
+	</a>
+</template>
+
 <template is="dom-repeat" items="[[categories]]" as="category">
 	<app-category hidden$="[[category.hidden]]">
 		<category-title>[[category.name]]</category-title>
-		<iron-selector selected="[[selected]]" attr-for-selected="name" class="drawer-list" role="navigation">
-			<template is="dom-repeat" items="[[category.links]]">
-				<a name="[[item.selectedName]]" href="[[_getHref(item, devPrefix)]]" hidden$="[[item.hidden]]">
-					<iron-icon icon="[[item.icon]]"></iron-icon>[[item.name]]
-				</a>
-			</template>
-		</iron-selector>
+		<template is="dom-repeat" items="[[category.links]]" as="link">
+			<a selected$="[[_isSelected(link.key, selected)]]" href="[[_getHref(link, devPrefix)]]" hidden$="[[link.hidden]]">
+				<iron-icon link icon="[[link.icon]]"></iron-icon>
+				<link-title>[[link.name]]</link-title>
+				<iron-icon unpinned$="[[!_isPinned(link, pinnedLinks.length)]]" pinned$="[[_isPinned(link, pinnedLinks.length)]]"
+				 icon="nav:pin" on-click="_togglePinnedItem" title="[[_pinTitle(link, pinnedLinks.length)]]"></iron-icon>
+			</a>
+		</template>
 	</app-category>
 </template>`;
   }
