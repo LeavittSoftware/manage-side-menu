@@ -120,7 +120,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
         },
         {
           roles: ['Company Manager Access'],
-          url: 'manage.leavitt.com/company-manager',
+          url: 'companymanager.leavitt.com',
           icon: 'nav:business',
           name: 'Company Manager',
           selectedName: 'company-manager'
