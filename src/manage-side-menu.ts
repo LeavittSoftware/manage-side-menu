@@ -89,7 +89,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           roles: ['PCMS User Access', 'PCMS Global Admin'],
           url: 'pcms.leavitt.com',
           icon: 'nav:money',
-          name: 'Producer Compensation',
+          name: 'PCMS',
           selectedName: 'pcms'
         },
         {
