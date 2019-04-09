@@ -1,24 +1,26 @@
 import {determineIsDevelopment} from '@leavittsoftware/titanium-elements/lib/titanium-dev-detection-mixin';
-import {authenticatedRolesMixin} from '@leavittsoftware/user-manager/lib/authenticated-roles-mixin';
 import {css, customElement, html, LitElement, property} from 'lit-element';
 
-
 type AppLink = {
-  icon: string; name: string; roles: Array<string>;
-  url: string, selectedName: string;
-  hidden?: boolean;
+  icon: string,
+  name: string,
+  roles: Array<string>,
+  url: string,
+  selectedName: string,
+  hidden?: boolean
 };
 
 type Category = {
-  name: string; links: Array<AppLink>;
-  hidden?: boolean;
+  name: string,
+  links: Array<AppLink>,
+  hidden?: boolean,
 };
 
 @customElement('manage-side-menu')
-export class ManageSideMenuElement extends authenticatedRolesMixin
-(LitElement) {
+export class ManageSideMenuElement extends LitElement {
   @property({reflect: true, type: String}) selected: string = '';
   @property({reflect: true, type: Boolean}) isDev: boolean;
+  @property({type: Array}) roles: Array<string> = [];
 
   @property({type: Array})
   uncategorizedLinks: Array<AppLink> = [{
@@ -34,23 +36,23 @@ export class ManageSideMenuElement extends authenticatedRolesMixin
       'M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z';
 
   @property({type: Array})
-  categories:
-      Array<Category> =
-          [
-            {
-              name: 'Auditing',
-              links: [{
-                icon:
-                    'M18 17H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V7h12v2zM3 22l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20z',
-                name: 'Log Parser',
-                url: 'manage.leavitt.com/log-parser/apps',
-                roles: ['View All Logs'],
-                selectedName: 'log-parser'
-              }]
-            },
-            {
-              name: 'Employee Management',
-              links: [
+  categories: Array<Category> =
+      [
+        {
+          name: 'Auditing',
+          links: [{
+            icon:
+                'M18 17H6v-2h12v2zm0-4H6v-2h12v2zm0-4H6V7h12v2zM3 22l1.5-1.5L6 22l1.5-1.5L9 22l1.5-1.5L12 22l1.5-1.5L15 22l1.5-1.5L18 22l1.5-1.5L21 22V2l-1.5 1.5L18 2l-1.5 1.5L15 2l-1.5 1.5L12 2l-1.5 1.5L9 2 7.5 3.5 6 2 4.5 3.5 3 2v20z',
+            name: 'Log Parser',
+            url: 'manage.leavitt.com/log-parser/apps',
+            roles: ['View All Logs'],
+            selectedName: 'log-parser'
+          }]
+        },
+        {
+          name: 'Employee Management',
+          links:
+              [
                 {
                   icon:
                       'M9,4A4,4 0 0,0 5,8A4,4 0 0,0 9,12A4,4 0 0,0 13,8A4,4 0 0,0 9,4M9,14C6.33,14 1,15.33 1,18V20H12.08C12.03,19.67 12,19.34 12,19C12,17.5 12.5,16 13.41,14.8C11.88,14.28 10.18,14 9,14M18,14C17.87,14 17.76,14.09 17.74,14.21L17.55,15.53C17.25,15.66 16.96,15.82 16.7,16L15.46,15.5C15.35,15.5 15.22,15.5 15.15,15.63L14.15,17.36C14.09,17.47 14.11,17.6 14.21,17.68L15.27,18.5C15.25,18.67 15.24,18.83 15.24,19C15.24,19.17 15.25,19.33 15.27,19.5L14.21,20.32C14.12,20.4 14.09,20.53 14.15,20.64L15.15,22.37C15.21,22.5 15.34,22.5 15.46,22.5L16.7,22C16.96,22.18 17.24,22.35 17.55,22.47L17.74,23.79C17.76,23.91 17.86,24 18,24H20C20.11,24 20.22,23.91 20.24,23.79L20.43,22.47C20.73,22.34 21,22.18 21.27,22L22.5,22.5C22.63,22.5 22.76,22.5 22.83,22.37L23.83,20.64C23.89,20.53 23.86,20.4 23.77,20.32L22.7,19.5C22.72,19.33 22.74,19.17 22.74,19C22.74,18.83 22.73,18.67 22.7,18.5L23.76,17.68C23.85,17.6 23.88,17.47 23.82,17.36L22.82,15.63C22.76,15.5 22.63,15.5 22.5,15.5L21.27,16C21,15.82 20.73,15.65 20.42,15.53L20.23,14.21C20.22,14.09 20.11,14 20,14M19,17.5A1.5,1.5 0 0,1 20.5,19A1.5,1.5 0 0,1 19,20.5C18.16,20.5 17.5,19.83 17.5,19A1.5,1.5 0 0,1 19,17.5Z',
@@ -116,10 +118,11 @@ export class ManageSideMenuElement extends authenticatedRolesMixin
                   selectedName: 'uvis-member-list'
                 },
               ]
-            },
-            {
-              name: 'Enterprise Management',
-              links: [
+        },
+        {
+          name: 'Enterprise Management',
+          links:
+              [
                 {
                   roles: ['App Manager Access'],
                   url: 'manage.leavitt.com/application-manager',
@@ -153,21 +156,22 @@ export class ManageSideMenuElement extends authenticatedRolesMixin
                   selectedName: 'permission-manager'
                 }
               ]
-            },
-            {
-              name: 'Phones',
-              links: [{
-                roles: ['Outbound Manager Access'],
-                url: 'manage.leavitt.com/outbound-caller-id-group-manager',
-                icon:
-                    'M13 9h-2v2h2V9zm4 0h-2v2h2V9zm3 6.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.58l2.2-2.21c.28-.27.36-.66.25-1.01C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 9v2h2V9h-2z',
-                name: 'Outbound Caller Id',
-                selectedName: 'outbound-caller-id-group-manager'
-              }]
-            },
-            {
-              name: 'Reporting',
-              links: [
+        },
+        {
+          name: 'Phones',
+          links: [{
+            roles: ['Outbound Manager Access'],
+            url: 'manage.leavitt.com/outbound-caller-id-group-manager',
+            icon:
+                'M13 9h-2v2h2V9zm4 0h-2v2h2V9zm3 6.5c-1.25 0-2.45-.2-3.57-.57-.35-.11-.74-.03-1.02.24l-2.2 2.2c-2.83-1.44-5.15-3.75-6.59-6.58l2.2-2.21c.28-.27.36-.66.25-1.01C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1zM19 9v2h2V9h-2z',
+            name: 'Outbound Caller Id',
+            selectedName: 'outbound-caller-id-group-manager'
+          }]
+        },
+        {
+          name: 'Reporting',
+          links:
+              [
                 {
                   roles: ['BookOfBusinessChange Read Access'],
                   url: 'manage.leavitt.com/book-of-business-changes-manager',
@@ -225,29 +229,31 @@ export class ManageSideMenuElement extends authenticatedRolesMixin
                   selectedName: 'producer-code-manager'
                 },
               ]
-            }
-          ];
+        }
+      ];
 
   firstUpdated() {
     this.isDev = determineIsDevelopment(window.location.origin);
-    this.addEventListener('roles-changed', () => {
-      this._onRoleChange();
-      this.requestUpdate();
-    });
+    // this.addEventListener('roles-changed', () => {
+    this._onRoleChange();
+    this.requestUpdate();
+    // });
+
+    // todo: listen for roles to change
   }
 
   _onRoleChange() {
-    this.categories.forEach((category: Category, categoryIndex: number) => {
+    this.categories.forEach((category: Category) => {
       let hideCategory = true;
-      category.links.forEach((appLink: AppLink, linkIndex: number) => {
-        const hideLink =
-            !this.roles.some(role => appLink.roles.indexOf(role) !== -1);
-        this.categories[categoryIndex].links[linkIndex].hidden = hideLink;
+      category.links.forEach((appLink: AppLink) => {
+        const hideLink = !this.roles.some(role => {
+          return appLink.roles.indexOf(role) !== -1;
+        });
         appLink.hidden = hideLink;
         if (!hideLink)
           hideCategory = false;
       });
-      this.categories[categoryIndex].hidden = hideCategory;
+      category.hidden = hideCategory;
     });
   }
 
@@ -324,7 +330,7 @@ export class ManageSideMenuElement extends authenticatedRolesMixin
 ${
         this.categories.map(
             (category) => html`
-  <app-category ?hidden$=${category.hidden}>
+  <app-category ?hidden=${category.hidden}>
 		<category-title>${category.name}</category-title>
     ${
                 category.links.map(

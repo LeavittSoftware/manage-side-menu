@@ -21,5 +21,6 @@
   },
   "include": [
     "*.ts"
-  ]
+  ],
+  "exclude": ["node_modules/@polymer/paper-input/paper-input.d.ts"]
 }

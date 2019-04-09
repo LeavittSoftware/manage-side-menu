@@ -5,7 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import '@polymer/paper-button';
-import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-toggle-button';
 import '@leavittsoftware/manage-side-menu/lib/manage-side-menu';
 import { customElement, listen, property, query } from '@polymer/decorators';

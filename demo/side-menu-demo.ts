@@ -1,5 +1,4 @@
 ﻿import '@polymer/paper-button';
-import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-toggle-button';
 import '@leavittsoftware/manage-side-menu/lib/manage-side-menu';
 
