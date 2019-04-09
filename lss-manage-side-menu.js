@@ -80,13 +80,9 @@ if (Polymer.Element) {
         var permissionAttribute = link.attributes['display-role'];
         if (typeof permissionAttribute !== 'undefined' &&
             permissionAttribute !== null) {
-          const permission = permissionAttribute.value;
-
-          if (this.roles.indexOf(permission) === -1) {
-            link.style.display = 'none';
-          } else {
-            link.style.display = '';
-          }
+          const permissions = permissionAttribute.value.split(',');
+          const display = permissions.reduce((p, c) => !!p || this.roles.indexOf(c.trim()) !== -1, false);
+          link.style.display = display ? '' : 'none';
         }
       });
 
