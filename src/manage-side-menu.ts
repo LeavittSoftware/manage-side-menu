@@ -139,13 +139,6 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           name: 'Email Templates',
           selectedName: 'email-template-manager'
         },
-        {
-          roles: ['Permission Manager App Access'],
-          url: 'manage.leavitt.com/permission-manager',
-          icon: 'nav:security',
-          name: 'Permissions',
-          selectedName: 'permission-manager'
-        }
       ]
     },
     {

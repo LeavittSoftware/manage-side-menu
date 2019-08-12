@@ -5,3 +5,4 @@ demo/*.js
 
 demo/package-lock\.json
 lib
+*.code-workspace
