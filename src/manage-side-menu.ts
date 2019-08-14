@@ -3,10 +3,10 @@ import '@polymer/iron-icon';
 import '@polymer/iron-iconset-svg';
 import '@polymer/iron-flex-layout/iron-flex-layout.js';
 
-import {titaniumDevDetectionMixin} from '@leavittsoftware/titanium-elements/lib/titanium-dev-detection-mixin';
-import {authenticatedRolesMixin} from '@leavittsoftware/user-manager/lib/authenticated-roles-mixin';
-import {customElement, observe, property} from '@polymer/decorators';
-import {html, PolymerElement} from '@polymer/polymer';
+import { titaniumDevDetectionMixin } from '@leavittsoftware/titanium-elements/lib/titanium-dev-detection-mixin';
+import { authenticatedRolesMixin } from '@leavittsoftware/user-manager/lib/authenticated-roles-mixin';
+import { customElement, observe, property } from '@polymer/decorators';
+import { html, PolymerElement } from '@polymer/polymer';
 
 type AppLink = {
   icon: string; name: string; roles: Array<string>;
@@ -21,10 +21,10 @@ type Category = {
 
 @customElement('manage-side-menu')
 export class ManageSideMenuElement extends titaniumDevDetectionMixin
-(authenticatedRolesMixin(PolymerElement)) {
-  @property({reflectToAttribute: true, type: String}) selected: string = '';
+  (authenticatedRolesMixin(PolymerElement)) {
+  @property({ reflectToAttribute: true, type: String }) selected: string = '';
 
-  @property({reflectToAttribute: true, type: String}) devPrefix: string = '';
+  @property({ reflectToAttribute: true, type: String }) devPrefix: string = '';
 
   @property()
   uncategorizedLinks: Array<AppLink> = [{
@@ -119,13 +119,6 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
       name: 'Enterprise Management',
       links: [
         {
-          roles: ['App Manager Access'],
-          url: 'manage.leavitt.com/application-manager',
-          icon: 'nav:settings-applications',
-          name: 'Application Manager',
-          selectedName: 'application-manager'
-        },
-        {
           roles: ['Company Manager Access'],
           url: 'companymanager.leavitt.com',
           icon: 'nav:business',
@@ -141,7 +134,7 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
         },
         {
           roles: ['Permission Manager App Access'],
-          url: 'manage.leavitt.com/permission-manager',
+          url: 'permissions.leavitt.com',
           icon: 'nav:security',
           name: 'Permissions',
           selectedName: 'permission-manager'
@@ -237,9 +230,9 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
       let hideCategory = true;
       category.links.forEach((appLink: AppLink, linkIndex: number) => {
         const hideLink =
-            !this.roles.some(role => appLink.roles.indexOf(role) !== -1);
+          !this.roles.some(role => appLink.roles.indexOf(role) !== -1);
         this.set(
-            `categories.${categoryIndex}.links.${linkIndex}.hidden`, hideLink);
+          `categories.${categoryIndex}.links.${linkIndex}.hidden`, hideLink);
         appLink.hidden = hideLink;
         if (!hideLink)
           hideCategory = false;
