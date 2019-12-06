@@ -210,6 +210,13 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           name: 'Producer Code',
           selectedName: 'producer-code-manager'
         },
+        {
+          roles: ['Production Budget Access'],
+          url: 'productionbudget.leavitt.com',
+          icon: 'nav:insert-chart',
+          name: 'Production Budget',
+          selectedName: 'production-budget'
+        },
       ]
     }
   ];
