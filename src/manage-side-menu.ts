@@ -79,13 +79,6 @@ export class ManageSideMenuElement extends titaniumDevDetectionMixin
           selectedName: 'name-changer'
         },
         {
-          roles: ['People Search User'],
-          url: 'peoplesearch.leavitt.com',
-          icon: 'nav:search',
-          name: 'People Search',
-          selectedName: 'people-search'
-        },
-        {
           roles: ['PCMS User Access', 'PCMS Global Admin'],
           url: 'pcms.leavitt.com',
           icon: 'nav:money',
